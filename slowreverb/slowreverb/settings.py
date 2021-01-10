@@ -28,6 +28,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+STATICFILES_DIRS = [
+    '/Users/neilgopal/slowed-reverb/slowreverb/static',
+]
 
 # Application definition
 

@@ -1,0 +1,119 @@
+body {
+  background-image: url('https://preview.redd.it/8kuy85eedfr41.jpg?auto=webp&s=f620cd515e5d14af3c1ed641f609102f9902f294');
+  background-position: right;
+  background-size: 100%;
+}
+
+.blur {
+  backdrop-filter: blur(14px);
+  height: 100vh;
+  border-width: 0px;
+}
+
+h1 {
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 100px;
+  color: #1DB954;
+  margin: 0px 0px;
+}
+
+h3 {
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 50px;
+  color: #1DB954;
+  margin: 0px 0px;
+}
+
+* {
+  text-align: center;
+}
+
+.url-input, .convert-button, .download-button, .choose-file {
+  font-size:1.3em;
+  padding:5px 10px;
+}
+
+.url-input {
+  border-radius: 4px 0px 0px 4px;
+  width: 30em;
+  text-align: left;
+  border: 5px solid #EEEEEE;
+  background: #EEEEEE;
+  outline:none;
+}
+
+.url-input:focus {
+  border: 5px solid #1DB954;
+}
+
+.convert-button {
+  border-radius: 0px 4px 4px 0px;
+  border: 5px solid #1DB954;
+  background: #1DB954;
+  color: white;
+}
+
+.download-button {
+  border-radius: 0px 4px 4px 0px;
+  margin: 25px 10px;
+  border: 5px solid #1DB954;
+  background: #1DB954;
+  color: white;
+}
+
+.choose-file {
+  border-radius: 0px 4px 4px 0px;
+  margin: 25px 10px;
+  border: 5px solid #1DB954;
+  background: #1DB954;
+  color: white;
+  text-align: center;
+}
+
+.convert-button:focus {
+  border: 5px solid white;
+}
+
+.slidecontainer {
+  width: 100%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 50%; /* Full-width */
+  height: 25px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+  margin: 25px 10px;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #1DB954; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #1DB954; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
