@@ -2,11 +2,15 @@ var convertBtn = document.querySelector('.convert-button');
 var URLinput = document.querySelector('.url-input');
 var downloadBtn = document.querySelector('.download-button');
 var url = document.getElementById("URL").value;
+// var file_name = document.getElementById("NAME").value;
+var audio = document.getElementById("audio");
 
 console.log(url);
-if (url == "DOWNLOAD") {
+if (String(url).includes("wav")) {
     downloadBtn.style.visibility = "visible";
+    audio.setAttribute('src', `{% static 'audio/${url}' %}`);
 } else {
+    console.log("test")
     downloadBtn.style.visibility = "hidden";
 }
 
