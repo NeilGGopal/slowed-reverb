@@ -12,8 +12,8 @@ def home(request):
         return render(request, 'home.html')
     
     yt = pytube.YouTube(url)
-    video = yt.streams.filter(only_audio=True).first()
-    video.download('/Users/neilgopal/slowed-reverb/static/audio')  
+    audio = yt.streams.filter(only_audio=True).first()
+    audio.download('/Users/neilgopal/slowed-reverb/slowreverb/static/audio')  
 
     context['URL'] = "DOWNLOAD"    
     return render(request, 'home.html', context)
