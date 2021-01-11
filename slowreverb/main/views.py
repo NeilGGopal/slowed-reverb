@@ -24,9 +24,10 @@ def home(request):
     fx = (
         AudioEffectsChain()
         .reverb()
+        .speed(0.8)
     )
 
-    fx("result.wav", "new_result.wav")
+    fx("result.wav", f"{url[32:]}.wav")
 
     context['URL'] = "DOWNLOAD"    
     return render(request, 'home.html', context)
