@@ -47,11 +47,3 @@ h1 {
   background: #1DB954;
   color: white;
 }
-
-.download-button {
-  border-radius: 0px 4px 4px 0px;
-  margin: 25px 10px;
-  border: 5px solid #1DB954;
-  background: #1DB954;
-  color: white;
-}

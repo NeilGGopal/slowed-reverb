@@ -24,10 +24,3 @@ function sendURL(URL) {
 function sendURLDownload(URL) {
     window.location.href = `http://localhost:8000/download?URL=${URL}`;
 }
-/**
-downloadBtn.addEventListener('click', () => {
-    console.log(`URL: ${window.location.href.substring(34)}`);
-    console.log(`${window.location.href.replace('convert', 'download')}`)
-    sendURLDownload(window.location.href.substring(34));
-});
-*/
