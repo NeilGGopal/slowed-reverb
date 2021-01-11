@@ -13,7 +13,7 @@ def home(request):
     
     yt = pytube.YouTube(url)
     video = yt.streams.filter(only_audio=True).first()
-    video.download('/Users/neilgopal/slowed-reverb/slowreverb')  
+    video.download('/Users/neilgopal/slowed-reverb/static/audio')  
 
     context['URL'] = "DOWNLOAD"    
     return render(request, 'home.html', context)
