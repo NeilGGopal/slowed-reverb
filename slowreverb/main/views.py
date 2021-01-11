@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 import pytube
+from pydub import AudioSegment
+from pysndfx import AudioEffectsChain
 
 # Create your views here.
 
@@ -13,7 +15,18 @@ def home(request):
     
     yt = pytube.YouTube(url)
     audio = yt.streams.filter(only_audio=True).first()
-    audio.download('/Users/neilgopal/slowed-reverb/slowreverb/static/audio', url)  
+    audio.download('/Users/neilgopal/slowed-reverb/slowreverb/static/audio', url[32:]) 
+
+    mp4_audio = AudioSegment.from_file(f'/Users/neilgopal/slowed-reverb/slowreverb/static/audio/{url[32:]}.mp4', "mp4")
+    slowed_audio = mp4_audio.low_pass_filter(800)
+    slowed_audio.export("result.wav", format="wav")
+
+    fx = (
+        AudioEffectsChain()
+        .reverb()
+    )
+
+    fx("result.wav", "new_result.wav")
 
     context['URL'] = "DOWNLOAD"    
     return render(request, 'home.html', context)
