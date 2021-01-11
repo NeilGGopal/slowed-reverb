@@ -8,16 +8,29 @@ body {
   backdrop-filter: blur(14px);
   height: 100vh;
   border-width: 0px;
-  margin: -10px -10px;
+  margin: -40px -60px;
 }
 
-h1 {
+h1, h2, h3 {
   -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: black;
   font-family: 'Trebuchet MS', sans-serif;
+  margin: 40px 40px;
+}
+
+h1 {
   font-size: 100px;
   color: #1DB954;
-  margin: 40px 40px;
+}
+
+h2 {
+  font-size: 60px;
+  color: #1DB954;
+}
+
+r {
+  font-size: 60px;
+  color: red;
 }
 
 * {
@@ -31,7 +44,7 @@ h1 {
 
 .url-input {
   border-radius: 4px 0px 0px 4px;
-  width: 30em;
+  width: 20em;
   text-align: left;
   border: 5px solid #EEEEEE;
   background: #EEEEEE;
