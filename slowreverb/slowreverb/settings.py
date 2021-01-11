@@ -32,6 +32,10 @@ STATICFILES_DIRS = [
     '/Users/neilgopal/slowed-reverb/slowreverb/static',
 ]
 
+MEDIA_ROOT = [
+    '/Users/neilgopal/slowed-reverb/slowreverb/media'
+]
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -122,3 +126,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
