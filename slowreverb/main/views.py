@@ -40,6 +40,5 @@ def home(request, option):
     elif "download" in url_name:
         pass
 
-    context['URL'] = "DOWNLOAD"
-    context['name'] = f'res-{url[32:]}.wav'   
+    context['URL'] = f"res-{url[32:]}.wav"
     return render(request, 'home.html', context)
