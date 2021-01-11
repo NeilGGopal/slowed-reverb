@@ -1,9 +1,16 @@
 var convertBtn = document.querySelector('.convert-button');
 var URLinput = document.querySelector('.url-input');
 var downloadBtn = document.querySelector('.download-button');
+var url = document.getElementById("URL").value;
+
+console.log(url);
+if (url == "DOWNLOAD") {
+    downloadBtn.style.visibility = "visible";
+} else {
+    downloadBtn.style.visibility = "hidden";
+}
 
 convertBtn.addEventListener('click', () => {
-    console.log(`URL: ${URLinput.value}`);
     sendURL(URLinput.value);
 });
 

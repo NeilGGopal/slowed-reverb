@@ -4,4 +4,11 @@ from django.http import HttpResponse
 # Create your views here.
 
 def home(request):
-    return render(request, 'home.html')
+    context = {}
+    url = request.GET.get('URL')
+
+    if url == '' or url is None:
+        return render(request, 'home.html')
+
+    context['URL'] = "DOWNLOAD"    
+    return render(request, 'home.html', context)
