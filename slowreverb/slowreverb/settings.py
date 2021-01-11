@@ -33,7 +33,7 @@ STATICFILES_DIRS = [
 ]
 
 MEDIA_ROOT = [
-    '/Users/neilgopal/slowed-reverb/slowreverb/media'
+    '/Users/neilgopal/slowed-reverb/slowreverb/static/audio',
 ]
 
 # Application definition
@@ -126,4 +126,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
+MEDIA_URL = '/audio/'
