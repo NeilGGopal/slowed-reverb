@@ -18,8 +18,8 @@ def home(request):
     audio.download('/Users/neilgopal/slowed-reverb/slowreverb/static/audio', url[32:]) 
 
     mp4_audio = AudioSegment.from_file(f'/Users/neilgopal/slowed-reverb/slowreverb/static/audio/{url[32:]}.mp4', "mp4")
-    slowed_audio = mp4_audio.low_pass_filter(800)
-    slowed_audio.export("result.wav", format="wav")
+    # slowed_audio = mp4_audio.low_pass_filter(800)
+    mp4_audio.export(f"{url[32:]}.wav", format="wav")
 
     fx = (
         AudioEffectsChain()
@@ -27,7 +27,7 @@ def home(request):
         .speed(0.8)
     )
 
-    fx("result.wav", f"{url[32:]}.wav")
+    fx(f"{url[32:]}.wav", f"res-{url[32:]}.wav")
 
     context['URL'] = "DOWNLOAD"    
     return render(request, 'home.html', context)
