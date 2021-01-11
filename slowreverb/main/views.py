@@ -12,6 +12,7 @@ from wsgiref.util import FileWrapper
 
 def home(request, option):
     context = {}
+    context['URL'] = ""
     url = request.GET.get('URL')
     url_name = request.resolver_match.view_name
 
