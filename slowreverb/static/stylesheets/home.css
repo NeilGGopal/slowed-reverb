@@ -19,20 +19,11 @@ h1 {
   margin: 0px 0px;
 }
 
-h3 {
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
-  font-family: 'Trebuchet MS', sans-serif;
-  font-size: 50px;
-  color: #1DB954;
-  margin: 0px 0px;
-}
-
 * {
   text-align: center;
 }
 
-.url-input, .convert-button, .download-button, .choose-file {
+.url-input, .convert-button, .download-button {
   font-size:1.3em;
   padding:5px 10px;
 }
@@ -63,57 +54,4 @@ h3 {
   border: 5px solid #1DB954;
   background: #1DB954;
   color: white;
-}
-
-.choose-file {
-  border-radius: 0px 4px 4px 0px;
-  margin: 25px 10px;
-  border: 5px solid #1DB954;
-  background: #1DB954;
-  color: white;
-  text-align: center;
-}
-
-.convert-button:focus {
-  border: 5px solid white;
-}
-
-.slidecontainer {
-  width: 100%; /* Width of the outside container */
-}
-
-/* The slider itself */
-.slider {
-  -webkit-appearance: none;  /* Override default CSS styles */
-  appearance: none;
-  width: 50%; /* Full-width */
-  height: 25px; /* Specified height */
-  background: #d3d3d3; /* Grey background */
-  outline: none; /* Remove outline */
-  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-  transition: opacity .2s;
-  margin: 25px 10px;
-}
-
-/* Mouse-over effects */
-.slider:hover {
-  opacity: 1; /* Fully shown on mouse-over */
-}
-
-/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Override default look */
-  appearance: none;
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
-  background: #1DB954; /* Green background */
-  cursor: pointer; /* Cursor on hover */
-}
-
-.slider::-moz-range-thumb {
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
-  background: #1DB954; /* Green background */
-  cursor: pointer; /* Cursor on hover */
 }
