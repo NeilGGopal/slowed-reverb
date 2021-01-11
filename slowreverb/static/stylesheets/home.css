@@ -47,3 +47,8 @@ h1 {
   background: #1DB954;
   color: white;
 }
+
+embed {
+  padding: 20px;
+  margin: 20px 20px;
+}
