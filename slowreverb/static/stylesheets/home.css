@@ -8,6 +8,7 @@ body {
   backdrop-filter: blur(14px);
   height: 100vh;
   border-width: 0px;
+  margin: -10px -10px;
 }
 
 h1 {
@@ -16,7 +17,7 @@ h1 {
   font-family: 'Trebuchet MS', sans-serif;
   font-size: 100px;
   color: #1DB954;
-  margin: 0px 0px;
+  margin: 40px 40px;
 }
 
 * {
@@ -24,8 +25,8 @@ h1 {
 }
 
 .url-input, .convert-button, .download-button {
-  font-size:1.3em;
-  padding:5px 10px;
+  font-size: 1.3em;
+  padding: 5px 10px;
 }
 
 .url-input {
@@ -34,7 +35,7 @@ h1 {
   text-align: left;
   border: 5px solid #EEEEEE;
   background: #EEEEEE;
-  outline:none;
+  outline: none;
 }
 
 .url-input:focus {
@@ -50,5 +51,5 @@ h1 {
 
 embed {
   padding: 20px;
-  margin: 20px 20px;
+  margin: 40px 40px;
 }
