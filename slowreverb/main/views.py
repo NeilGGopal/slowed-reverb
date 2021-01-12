@@ -5,6 +5,7 @@ from pydub import AudioSegment
 from pysndfx import AudioEffectsChain
 import pytube
 import os
+import moviepy.editor as mp
 
 # Create your views here.
 
@@ -18,25 +19,28 @@ def home(request, option):
     if url == '' or url is None:
         return render(request, 'home.html') # main page without audio
 
-    path = f"/Users/neilgopal/slowed-reverb/slowreverb/static/audio/{url[32:43]}.wav" # audio path    
+    parent_dir = '/Users/neilgopal/slowed-reverb/slowreverb/static/audio'             # file path
+    path = f"/Users/neilgopal/slowed-reverb/slowreverb/static/audio/{url[32:43]}.mp4" # audio path
+    new_path = f'{parent_dir}/{url[32:43]}.mp3'                                       # mp3 result path
     
     # if user chose conversion option
     if "convert" == option:
         yt = pytube.YouTube(url)
-        audio = yt.streams.filter(only_audio=True).first()
-        audio.download('/Users/neilgopal/slowed-reverb/slowreverb/static/audio', url[32:43]) 
+        audio = yt.streams.filter(only_audio=True, file_extension='mp4').first()
+        audio.download(parent_dir, url[32:43])      # downloads file to parent_dir as mp4
 
-        mp4_audio = AudioSegment.from_file(f'/Users/neilgopal/slowed-reverb/slowreverb/static/audio/{url[32:43]}.mp4', "mp4")
-        mp4_audio.export(path, format="wav")
+        clip = mp.AudioFileClip(path)
+        clip.write_audiofile(new_path)
+        clip.close()    # converts mp4 to mp3
 
         fx = (
             AudioEffectsChain()
             .reverb()
             .speed(0.8)
-        )   # applies effeects
+        )   # applies effects
 
-        fx(path, f"/Users/neilgopal/slowed-reverb/slowreverb/static/audio/res-{url[32:43]}.mp3")    # final file is downloaded
-        os.remove(f"/Users/neilgopal/slowed-reverb/slowreverb/static/audio/{url[32:43]}.wav")
+        fx(new_path, f"/Users/neilgopal/slowed-reverb/slowreverb/static/audio/res-{url[32:43]}.mp3")    # final file is downloaded
+        os.remove(f"/Users/neilgopal/slowed-reverb/slowreverb/static/audio/{url[32:43]}.mp3")
         os.remove(f"/Users/neilgopal/slowed-reverb/slowreverb/static/audio/{url[32:43]}.mp4")
         
 
