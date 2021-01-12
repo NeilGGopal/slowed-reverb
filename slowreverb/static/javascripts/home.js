@@ -4,7 +4,7 @@ var url = document.getElementById("URL").value;             // url value from py
 var audio = document.getElementById("audio");               // audio element
 
 console.log(url);
-if (String(url).includes("wav")) {
+if (String(url).includes("mp3")) {
     audio.setAttribute('src', `/static/audio/${url}/`)      // changes audio element to reference converted file
 }
 

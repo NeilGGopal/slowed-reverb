@@ -35,10 +35,10 @@ def home(request, option):
             .speed(0.8)
         )   # applies effeects
 
-        fx(path, f"/Users/neilgopal/slowed-reverb/slowreverb/static/audio/res-{url[32:43]}.wav")    # final file is downloaded
+        fx(path, f"/Users/neilgopal/slowed-reverb/slowreverb/static/audio/res-{url[32:43]}.mp3")    # final file is downloaded
         os.remove(f"/Users/neilgopal/slowed-reverb/slowreverb/static/audio/{url[32:43]}.wav")
         os.remove(f"/Users/neilgopal/slowed-reverb/slowreverb/static/audio/{url[32:43]}.mp4")
         
 
-    context['URL'] = f"res-{url[32:43]}.wav"
+    context['URL'] = f"res-{url[32:43]}.mp3"
     return render(request, 'home.html', context)    # converted audio displayed on page
