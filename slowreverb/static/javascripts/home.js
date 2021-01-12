@@ -1,26 +1,20 @@
-var convertBtn = document.querySelector('.convert-button');
-var URLinput = document.querySelector('.url-input');
-// var downloadBtn = document.querySelector('.download-button');
-var url = document.getElementById("URL").value;
-// var file_name = document.getElementById("NAME").value;
-var audio = document.getElementById("audio");
+var convertBtn = document.querySelector('.convert-button'); // convert button
+var URLinput = document.querySelector('.url-input');        // url input
+var url = document.getElementById("URL").value;             // url value from python parameters
+var audio = document.getElementById("audio");               // audio element
 
 console.log(url);
 if (String(url).includes("wav")) {
     audio.hidden = false;
-    audio.setAttribute('src', `/static/audio/${url}/`)
+    audio.setAttribute('src', `/static/audio/${url}/`)      // changes audio element to reference converted file
 } else {
-    audio.hidden = true;
+    audio.hidden = true;                                    // makes audio visible
 }
 
 convertBtn.addEventListener('click', () => {
-    sendURL(URLinput.value);
+    sendURL(URLinput.value);                                // calls sendURL() to change url
 });
 
 function sendURL(URL) {
-    window.location.href = `http://localhost:8000/convert?URL=${URL}`;
-}
-
-function sendURLDownload(URL) {
-    window.location.href = `http://localhost:8000/download?URL=${URL}`;
+    window.location.href = `http://localhost:8000/convert?URL=${URL}`;  // changes url to conversion url
 }
