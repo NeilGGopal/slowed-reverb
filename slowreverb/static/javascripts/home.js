@@ -5,11 +5,12 @@ var progress = document.getElementById("myProgress");       // progress bar
 var url = document.getElementById("URL").value;             // url value from python parameters
 var audio = document.getElementById("audio");               // audio element
 
-console.log(url);
+// checks if user has converted link correctly
 if (String(url).includes("mp3")) {
     audio.setAttribute('src', `/static/audio/${url}/`)      // changes audio element to reference converted file
 }
 
+// checks if user click conversion button
 convertBtn.addEventListener('click', () => {
     sendURL(URLinput.value);                                // calls sendURL() to change url
     patientTxt.style.visibility = "visible";                // makes patient text visible
@@ -17,6 +18,7 @@ convertBtn.addEventListener('click', () => {
     move();
 });
 
+// changes url to convert url
 function sendURL(URL) {
     window.location.href = `http://localhost:8000/convert?URL=${URL}`;  // changes url to conversion url
 }
