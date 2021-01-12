@@ -1,5 +1,6 @@
 var convertBtn = document.querySelector('.convert-button'); // convert button
 var URLinput = document.querySelector('.url-input');        // url input
+var patientTxt = document.getElementById("patient");        // text telling user to be patient
 var url = document.getElementById("URL").value;             // url value from python parameters
 var audio = document.getElementById("audio");               // audio element
 
@@ -10,6 +11,7 @@ if (String(url).includes("mp3")) {
 
 convertBtn.addEventListener('click', () => {
     sendURL(URLinput.value);                                // calls sendURL() to change url
+    patientTxt.style.visibility = "visible";                // makes patient text visible
 });
 
 function sendURL(URL) {
