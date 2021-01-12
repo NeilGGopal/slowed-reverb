@@ -5,10 +5,7 @@ var audio = document.getElementById("audio");               // audio element
 
 console.log(url);
 if (String(url).includes("wav")) {
-    audio.hidden = false;
     audio.setAttribute('src', `/static/audio/${url}/`)      // changes audio element to reference converted file
-} else {
-    audio.hidden = true;                                    // makes audio visible
 }
 
 convertBtn.addEventListener('click', () => {
