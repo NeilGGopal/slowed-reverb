@@ -12,7 +12,7 @@ To run the server:
 ## TODO
 - Link server to a remote database to store audio files
 - Write a cleanup script to get rid of audio files after a certain period of time (ideally a few minutes)
-- Find way to convert audio file for use by pysndfx without needing pydub
+- ~~Find way to convert audio file for use by pysndfx without needing pydub~~ *Now using MoviePy to convert audio*
 - Speed up audio conversion process
 - Turn off autoplay on the resulting audio file
 
