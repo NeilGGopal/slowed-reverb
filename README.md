@@ -13,6 +13,12 @@ Installation is as simple as cloning this repository and installing the packages
 - Speed up audio conversion process
 - Turn off autoplay on the resulting audio file
 
+
+
+
 Pull requests are encouraged and appreciated!
 
-Created by Neil Gopal
+
+
+
+*Created by Neil Gopal*
