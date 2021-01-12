@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.conf import settings
-import pytube
 from pydub import AudioSegment
 from pysndfx import AudioEffectsChain
+import pytube
+import os
 
 # Create your views here.
 
@@ -26,7 +27,6 @@ def home(request, option):
         audio.download('/Users/neilgopal/slowed-reverb/slowreverb/static/audio', url[32:43]) 
 
         mp4_audio = AudioSegment.from_file(f'/Users/neilgopal/slowed-reverb/slowreverb/static/audio/{url[32:43]}.mp4', "mp4")
-        # slowed_audio = mp4_audio.low_pass_filter(800)
         mp4_audio.export(path, format="wav")
 
         fx = (
@@ -36,6 +36,9 @@ def home(request, option):
         )   # applies effeects
 
         fx(path, f"/Users/neilgopal/slowed-reverb/slowreverb/static/audio/res-{url[32:43]}.wav")    # final file is downloaded
+        os.remove(f"/Users/neilgopal/slowed-reverb/slowreverb/static/audio/{url[32:43]}.wav")
+        os.remove(f"/Users/neilgopal/slowed-reverb/slowreverb/static/audio/{url[32:43]}.mp4")
+        
 
     context['URL'] = f"res-{url[32:43]}.wav"
     return render(request, 'home.html', context)    # converted audio displayed on page
