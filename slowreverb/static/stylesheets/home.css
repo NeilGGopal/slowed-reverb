@@ -11,10 +11,9 @@ body {
   margin: -40px -60px;
 }
 
-h1, h2, h3 {
+h1, h2 {
   -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: black;
-  font-family: 'Trebuchet MS', sans-serif;
   margin: 40px 40px;
 }
 
@@ -28,11 +27,6 @@ h2 {
   color: #1DB954;
 }
 
-h3 {
-  font-size: 30px;
-  color: #1DB954;
-}
-
 r {
   font-size: 50px;
   color: red;
@@ -40,6 +34,7 @@ r {
 
 * {
   text-align: center;
+  font-family: 'Trebuchet MS', sans-serif;
 }
 
 .url-input, .convert-button, .download-button {
@@ -70,4 +65,20 @@ r {
 embed {
   padding: 20px;
   margin: 40px 40px;
+}
+
+#myProgress {
+  width: 30%;
+  background-color: white;
+  margin: auto;
+}
+
+#myBar {
+  width: 0.3%;
+  height: 30px;
+  background-color: #1DB954;
+  line-height: 30px;
+  color: black;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
 }
