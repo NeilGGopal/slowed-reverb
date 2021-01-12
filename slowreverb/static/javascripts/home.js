@@ -12,6 +12,9 @@ if (String(url).includes("mp3")) {
 
 // checks if user click conversion button
 convertBtn.addEventListener('click', () => {
+    if (!URLinput.value.includes("youtube.com/watch?v=")) {
+        return;
+    }                                                       // checks if URL input is a YouTube link
     sendURL(URLinput.value);                                // calls sendURL() to change url
     patientTxt.style.visibility = "visible";                // makes patient text visible
     progress.style.visibility = "visible";                  // makes progress bar visible
