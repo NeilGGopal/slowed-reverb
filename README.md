@@ -4,7 +4,10 @@ This program takes any YouTube link and applies a slowed & reverbed effect to th
 ## Usage
 While this program is intended to be hosted on a server and available for people to use, it currently is not. You will need to install the program and run it yourself.
 
-Installation is as simple as cloning this repository and installing the packages listed above. To run the server, make sure you are in the same directory as manage.py and run the command `python3 manage.py runserver`. `python3` will vary depending on your Python version.
+Installation is as simple as cloning this repository and installing the packages listed above. 
+To run the server:
+1. Make sure you are in the same directory as manage.py and run the command `python3 manage.py runserver` (`python3` will vary depending on your Python version).
+2. Visit [localhost:8000](localhost:8000) to see the homepage.
 
 ## TODO
 - Link server to a remote database to store audio files
@@ -13,12 +16,6 @@ Installation is as simple as cloning this repository and installing the packages
 - Speed up audio conversion process
 - Turn off autoplay on the resulting audio file
 
-
-
-
+---
 Pull requests are encouraged and appreciated!
-
-
-
-
 *Created by Neil Gopal*
