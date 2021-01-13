@@ -24,7 +24,10 @@ def home(request, option):
     new_path = f'{parent_dir}/{url[32:43]}.mp3'                                       # mp3 result path
     
     if "download" == option:
-        os.remove(f"/Users/neilgopal/slowed-reverb/slowreverb/static/audio/res-{url[32:43]}.mp3") # remove downloaded file 
+        try:
+            os.remove(f"/Users/neilgopal/slowed-reverb/slowreverb/static/audio/res-{url[32:43]}.mp3") # remove downloaded file 
+        except FileNotFoundError:
+            return render(request, 'home.html', context)    # converted audio displayed on page   
         context['URL'] = f"res-{url[32:43]}.mp3"
         return render(request, 'home.html', context)    # converted audio displayed on page   
 
