@@ -12,8 +12,14 @@ if (!window.location.href.includes('convert')) {
 }   // sets audio to invisible on homepage
 
 // checks if user has converted link correctly
-if (String(url).includes("mp3")) {
-    audio.setAttribute('src', `/static/audio/${url}/`)      // changes audio element to reference converted file
+if (String(url).includes("mp3") && !String(window.location.href).includes("download")) {
+    var link = document.getElementById("download");         // a tag for automatic download
+    link.setAttribute("href", `/static/audio/${url}/`)
+    link.setAttribute("download", `/static/audio/${url}/`);
+    link.click();                                           // clicks a tag that forces download
+    // audio.setAttribute('src', `/static/audio/${url}/`)   // changes audio element to reference converted file
+    window.location.href = 
+    `${window.location.href.substring(0,22)}download${window.location.href.substring(29)}`; // changes url to download url
 }
 
 // checks if user click conversion button
@@ -33,7 +39,7 @@ convertBtn.addEventListener('click', () => {
     move();
 });
 
-// changes url to convert url
+// changes url to conversion url
 function sendURL(URL) {
     window.location.href = `http://localhost:8000/convert?URL=${URL}`;  // changes url to conversion url
 }

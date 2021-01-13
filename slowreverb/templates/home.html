@@ -15,6 +15,7 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <input type="hidden" id="URL" value="{{URL}}">
+    <a href="" id="download" download="" style="visibility: hidden;"></a>
     <div class="blur">
       <div>
         <h1>SLOWED REVERB</h1>
@@ -26,8 +27,8 @@
       </div>
         <div id="embedDiv">
         </div>
-        <div>
-          <audio controls="controls" id="audio" preload='auto'></audio>
+        <div>    
+          <audio controls controlsList="nodownload" id="audio" preload='auto'></audio>
         </div>
         <div>
           <h2 id="converting" style="visibility: hidden;">CONVERTING AUDIO...</h2>
