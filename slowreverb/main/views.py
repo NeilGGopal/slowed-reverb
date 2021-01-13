@@ -33,6 +33,10 @@ def home(request, option):
 
     # if user chose conversion option
     if "convert" == option:
+        if os.path.exists(f"/Users/neilgopal/slowed-reverb/slowreverb/static/audio/res-{url[32:43]}.mp3"):
+            context['URL'] = f"res-{url[32:43]}.mp3"
+            return render(request, 'home.html', context)    # converted audio displayed on page
+            
         yt = pytube.YouTube(url)
         audio = yt.streams.filter(only_audio=True, file_extension='mp4').first()
         audio.download(parent_dir, url[32:43])      # downloads file to parent_dir as mp4
@@ -48,8 +52,11 @@ def home(request, option):
         )   # applies effects
 
         fx(new_path, f"/Users/neilgopal/slowed-reverb/slowreverb/static/audio/res-{url[32:43]}.mp3")    # final file is downloaded
-        os.remove(f"/Users/neilgopal/slowed-reverb/slowreverb/static/audio/{url[32:43]}.mp3")
-        os.remove(f"/Users/neilgopal/slowed-reverb/slowreverb/static/audio/{url[32:43]}.mp4") 
+        try:
+            os.remove(f"/Users/neilgopal/slowed-reverb/slowreverb/static/audio/{url[32:43]}.mp3")
+            os.remove(f"/Users/neilgopal/slowed-reverb/slowreverb/static/audio/{url[32:43]}.mp4") 
+        except FileNotFoundError:
+            pass    
     
     context['URL'] = f"res-{url[32:43]}.mp3"
     return render(request, 'home.html', context)    # converted audio displayed on page
