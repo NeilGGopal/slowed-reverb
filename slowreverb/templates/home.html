@@ -24,11 +24,13 @@
         <input class="url-input" placeholder="URL">
         <button class="convert-button">Convert</button>  
       </div>
-        <div>
-          <embed controls="controls" id="audio"></embed>
+        <div id="embedDiv">
         </div>
         <div>
-          <h2 id="patient" style="visibility: hidden;">CONVERTING AUDIO...</h2>
+          <audio controls="controls" id="audio" preload='auto'></audio>
+        </div>
+        <div>
+          <h2 id="converting" style="visibility: hidden;">CONVERTING AUDIO...</h2>
         </div>
         <div id="myProgress" style="visibility: hidden;">
           <div id="myBar">10%</div>

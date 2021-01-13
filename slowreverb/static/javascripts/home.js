@@ -1,9 +1,15 @@
 var convertBtn = document.querySelector('.convert-button'); // convert button
 var URLinput = document.querySelector('.url-input');        // url input
-var patientTxt = document.getElementById("patient");        // text telling user to be patient
+var convertTxt = document.getElementById("converting");     // text informing user of conversion process
+var embedDiv = document.getElementById("embedDiv");         // div element to store convert text and bar
 var progress = document.getElementById("myProgress");       // progress bar
 var url = document.getElementById("URL").value;             // url value from python parameters
 var audio = document.getElementById("audio");               // audio element
+
+if (!window.location.href.includes('convert')) {
+    audio.style.visibility = "hidden";
+    audio.setAttribute('src', '');
+}   // sets audio to invisible on homepage
 
 // checks if user has converted link correctly
 if (String(url).includes("mp3")) {
@@ -16,7 +22,13 @@ convertBtn.addEventListener('click', () => {
         return;
     }                                                       // checks if URL input is a YouTube link
     sendURL(URLinput.value);                                // calls sendURL() to change url
-    patientTxt.style.visibility = "visible";                // makes patient text visible
+    
+    audio.style.visibility = "hidden";                      //
+    audio.setAttribute('src', '');                          // hides audio if conversion clicked on convert page
+    embedDiv.appendChild(convertTxt);                       // moves conversion text above audio
+    embedDiv.appendChild(progress);                         // moves progress bar above audio
+
+    convertTxt.style.visibility = "visible";                // makes convert text visible
     progress.style.visibility = "visible";                  // makes progress bar visible
     move();
 });
