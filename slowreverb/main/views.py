@@ -23,6 +23,11 @@ def home(request, option):
     path = f"/Users/neilgopal/slowed-reverb/slowreverb/static/audio/{url[32:43]}.mp4" # audio path
     new_path = f'{parent_dir}/{url[32:43]}.mp3'                                       # mp3 result path
     
+    # check if file already downloaded
+    if os.path.exists(f'/Users/neilgopal/slowed-reverb/slowreverb/static/audio/res-{url[32:43]}.mp3'):
+        context['URL'] = f"res-{url[32:43]}.mp3"
+        return render(request, 'home.html', context)    # converted audio displayed on page
+
     # if user chose conversion option
     if "convert" == option:
         yt = pytube.YouTube(url)
