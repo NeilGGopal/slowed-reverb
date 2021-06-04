@@ -1,5 +1,5 @@
 body {
-  background-image: url('https://preview.redd.it/8kuy85eedfr41.jpg?auto=webp&s=f620cd515e5d14af3c1ed641f609102f9902f294');
+  background-image: url("https://preview.redd.it/8kuy85eedfr41.jpg?auto=webp&s=f620cd515e5d14af3c1ed641f609102f9902f294");
   background-position: right;
   background-size: 100%;
 }
@@ -11,7 +11,8 @@ body {
   margin: -40px -60px;
 }
 
-h1, h2 {
+h1,
+h2 {
   -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: black;
   margin: 40px 40px;
@@ -19,12 +20,12 @@ h1, h2 {
 
 h1 {
   font-size: 120px;
-  color: #1DB954;
+  color: #1db954;
 }
 
 h2 {
   font-size: 50px;
-  color: #1DB954;
+  color: #1db954;
 }
 
 r {
@@ -34,10 +35,12 @@ r {
 
 * {
   text-align: center;
-  font-family: 'Trebuchet MS', sans-serif;
+  font-family: "Trebuchet MS", sans-serif;
 }
 
-.url-input, .convert-button, .download-button {
+.url-input,
+.convert-button,
+.download-button {
   font-size: 1.3em;
   padding: 5px 10px;
 }
@@ -46,19 +49,19 @@ r {
   border-radius: 4px 0px 0px 4px;
   width: 29em;
   text-align: left;
-  border: 5px solid #EEEEEE;
-  background: #EEEEEE;
+  border: 5px solid #eeeeee;
+  background: #eeeeee;
   outline: none;
 }
 
 .url-input:focus {
-  border: 5px solid #1DB954;
+  border: 5px solid #1db954;
 }
 
 .convert-button {
   border-radius: 0px 4px 4px 0px;
-  border: 5px solid #1DB954;
-  background: #1DB954;
+  border: 5px solid #1db954;
+  background: #1db954;
   color: white;
 }
 
@@ -76,7 +79,7 @@ audio {
 #myBar {
   width: 0.3%;
   height: 30px;
-  background-color: #1DB954;
+  background-color: #1db954;
   line-height: 30px;
   color: black;
 }
