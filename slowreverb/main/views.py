@@ -1,9 +1,11 @@
+from __future__ import unicode_literals
+import youtube_dl
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.conf import settings
 from pydub import AudioSegment
 from pysndfx import AudioEffectsChain
-import pytube
+from pytube import YouTube
 import os
 import moviepy.editor as mp
 import time
@@ -48,18 +50,33 @@ def home(request, option):
             # converted audio displayed on page
             return render(request, 'home.html', context)
 
-        yt = pytube.YouTube(url)
-        audio = yt.streams.filter(only_audio=True, file_extension='mp4').first()
-        audio.download(parent_dir, url[32:43])      # downloads file to parent_dir as mp4
+        ydl_opts = {
+            'format': 'bestaudio/best',
+            'outtmpl': f'{parent_dir}/{url[32:43]}.webm',
+            'nocheckcertificate': True,
+            'keepvideo': True,
+            'postprocessors': [{
+                'key': 'FFmpegExtractAudio',
+                'preferredcodec': 'mp3',
+                'preferredquality': '192',
+            }],
+        }
+        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+            ydl.download([f'{url}'])
 
-        clip = mp.AudioFileClip(path)
-        clip.write_audiofile(new_path)
-        clip.close()    # converts mp4 to mp3
+        # yt = YouTube(url)
+        # try:
+        #     yt.streams.filter(only_audio=True, file_extension='mp4').first().download(parent_dir, url[32:43]) # downloads file to parent_dir as mp4
+        # except:
+        #     yt.streams.filter(file_extension='mp4').first().download(parent_dir, url[32:43])
+        # clip = mp.AudioFileClip(path)
+        # clip.write_audiofile(new_path)
+        # clip.close()    # converts mp4 to mp3
 
         fx = (
             AudioEffectsChain()
-            .reverb()
-            .speed(0.8)
+            .reverb(reverberance=30)
+            .speed(0.85)
         )   # applies effects
 
         # final file is downloaded
@@ -68,6 +85,8 @@ def home(request, option):
         try:
             os.remove(
                 f"/Users/neilgopal/slowed-reverb/slowreverb/static/audio/{url[32:43]}.mp3")
+            os.remove(
+                f"/Users/neilgopal/slowed-reverb/slowreverb/static/audio/{url[32:43]}.webm")
             os.remove(
                 f"/Users/neilgopal/slowed-reverb/slowreverb/static/audio/{url[32:43]}.mp4")
         except FileNotFoundError:
